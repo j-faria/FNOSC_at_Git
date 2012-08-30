@@ -1,0 +1,130 @@
+Zero Age Main Sequence Models
+
+We will use Carl J.Hansen and Steven D.Kawaler's zams code to calculate Zero Age
+Main Sequence models. This code is very easy to use, and it doesn't take too
+much time to compile it.
+To download the code click here
+
+then untar it by:      
+
+% tar xvf zams.tar
+------------------
+
+The tar file should contain the 6 files as described below:
+
+        ZAMS.FOR   = Fortran source file for ZAMS model builder
+	ZAMS.EXE   = PC executable code for ZAMS model builder
+	MODIN.001  = Sample input for 1 solar mass model
+	MODIN.015  = Sample input for 15 solar mass model
+	MODOUT.001 = Output for 1 solar mass model
+	MODOUT.015 = Output for 15 solar mass model
+
+The files fall into two categories: programs and input-output files. The program
+ZAMS.FOR computes zero-age main sequence models (one model per run) and you can
+analyze these models for pulsation using PULS (We won't use PULS code).
+The source code ASCII file is written in standard FORTRAN. We also include the
+corresponding executable file ZAMS.EXE for use on PC's. These have been
+compiled using Microsoft FORTRAN ver. 5.0 and should be ready to run on you PC.
+Running time for ZAMS.EXE for the 1 solar mass model using the input discussed
+below is ~30 seconds on astro.
+
+The ASCII files MODIN.001 and MODIN.015 show what your screen might
+look like after you have entered input for calculating 1 or 15 Msun
+ZAMS models using ZAMS.FOR or ZAMS.EXE with X (hydrogen mass fraction)
+equal to 0.74 and Y (helium mass fraction) equal to 0.24.  We advise
+you to try out this input with their corresponding guesses of central
+pressure and temperature, and surface radius and luminosity (in units
+of Lsun).  If you have chosen MODOUT.001 or MODOUT.015 as the file
+names for output, then our files MODOUT.001 or MODOUT.015 on this
+tar file should be identical to your output files. You should print out
+these files to identify the output variables.  So, for example, the
+first block of output recalls your input (mass, composition, central
+pressure, [Pc], etc.) and is followed by information relevant to
+iterations and convergence.  You will usually not need this information.
+After the line "FINAL MODEL" we have the output for a fully converged model.
+The first bank of lines consists of indexed columns. The first column gives the
+relative mass interior to the surface (1-Mr/M) where Mr is M_r (the _
+means subscript) and M stands for mass and r for radius.  The other
+columns list the base 10 logs of radius, pressure (P), temperature (T),
+density (RHO), and interior total luminosity as a function of radius
+(i.e., L_r).  The second bank of columns list the logs of energy
+generation rate (EPS), opacity (OP), convective luminosity (Lc) as a
+function of radius, the ratio of convective to total luminosity
+(Lc/Ltot), the actual Del (DEL), and then Delad (adiabatic) and the
+radiative Del (DELRAD). With all this information you should be able to
+figure out what's going on in the model ZAMS star. 
+
+The pulsation code PULS.FOR (or PULS.EXE) uses output from ZAMS.  You
+ask ZAMS for this output by answering y (or Y) for "yes" when ZAMS asks
+"DO YOU WANT PULSATION OUTPUT (Y/N)". Please answer this with n or N,
+so that you do not get that output.
+
+
+Compilation is done as follows:
+
+%  f77 zams.for
+---------------
+
+and it will create an executable file called a.out. You can use this executable
+file on astro or zams.exe on your PC to calculate ZAMS models.
+
+EXAMPLE
+
+Let's create a ZAMS model for a 1 solar mass model with composition 
+X=0.74, Y=0.24, Z=0.02 (solar metallicity).
+
+[on astro] type      
+
+%  a.out
+
+Then the program will ask:
+
+THE TOTAL MASS IS (IN MSUN)
+1.	 
+X(Hydrogen) AND Y(HELIUM) ARE
+.74 .24	  
+GUESS FOR CENTRAL PRESSURE (IN CGS)
+1.483e17
+GUESS FOR CENTRAL TEMPERATURE (IN K)
+1.449e7	
+GUESS FOR TOTAL RADIUS (IN CM)
+6.93e10	
+GUESS FOR TOTAL LUMINOSITY (IN LSUN)
+.9
+WHAT IS YOUR OUTPUT FILENAME?
+output1
+DO YOU WANT PULSATION OUTPUT? (Y/N)
+n
+
+
+The model will create an output file called output1 which should be similar to
+modin001.out for this case.
+
+In order to run this code you'll need initial guesses for Pc, Tc, R, L.
+Initial guesses for different masses are given in Table 2.1 and 2.2 of Stellar
+Interiors by C.J.Hansen and S.D.Kawaler, 1994 Springer-Verlag New York, Inc.
+
+The initial guesses for 1,2,5 and 10 solar masses from these tables are as follows:
+
+M/Msun		log(L/Lsun)	R*10^10		Tc*10^6		log(P_c)
+1		-0.042		6.934		14.42		17.17
+2		1.262		10.30		21.09		17.21
+5		2.773		17.18		26.43		16.84
+10		3.772		25.94		30.48		16.57
+
+note that when you are asked for central pressure you have to convert the 
+initial guesses for logP_c to P_c.
+
+
+In order to calculate models with different compositions/metallicity~0 you have
+to do iterations. First calculate ZAMS model with solar composition (X=0.74,
+Y=0.24, Z=0.02). Then use the FINAL MODEL from your output file for your first 
+model, and use the values for Pc, L, R, and Tc to calculate a model with
+X=0.75 Y=0.24 Z=0.01. Then use the final model from this calculation as input
+to another model with composition X=0.75 Y=0.249 , and then use the final model
+from this calculation to calculate a model with X=0.75 Y=0.2499 (Z=0.0001). If 
+you want to play more with the code, you may continue to do more iterations to
+get the metallicity down as much as possible. 
+
+ps: The model does not converge for the models with zero metallicity, but you
+can push the models to approach zero metallicity by doing more iterations.

@@ -1,0 +1,11 @@
+ mass (in msun)=  1.000
+ x= 0.740 y= 0.240
+ l=     4.
+ guessed period=  4.000000E+01 sec
+ ntry=  1 eig=  2.4674011E-02 deig=  4.74472E-04
+ ntry=  2 eig=  2.5148483E-02 deig= -7.70796E-05
+ ntry=  3 eig=  2.5071403E-02 deig=  1.87452E-05
+ ntry=  4 eig=  2.5090148E-02 deig=  3.47258E-08
+ final values: period=   3.966687E+01 eig=  2.509018317E-02
+ 75 nodes in y1    72 nodes in y2 
+     phase diagram mode -29

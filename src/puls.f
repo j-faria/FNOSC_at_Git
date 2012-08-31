@@ -20,6 +20,8 @@
 ! quantum number of the spherical harmonic function.
 ! enter a zero if you want the radial case.
 ! ******************************************************
+	  use lib_array
+	  
 	  implicit double precision (a-h,o-z)
 	  common g(200),rho(200),x(200),yeig(2,200)
 	  double precision l,lhat,lindex
@@ -30,6 +32,21 @@
 	  common/rad/radial
 	  common/rs/r(200)
 	  common/flags/iprnt
+	  integer :: iter = 1
+	  dimension trial(5)
+	  trial(1) = 30.
+	  trial(2) = 40.
+	  trial(3) = 50.
+	  trial(4) = 60.
+	  trial(5) = 0.
+	
+	
+	
+	! tests
+	!ini = 1.
+	!fin = 5.
+	!call linspace_dp(ini,fin,xteste)
+	!write(*,*) xteste
 	
 	!
 	! read in model quantities.
@@ -40,12 +57,18 @@
  2000 format (' enter guessed period (in seconds)')
 	 write (6,2001)
  2001 format (' (enter a period of 0 to stop)')
-      read (5,*) period
+      
+!      read (5,*) period
+      write(*,*) trial
+      write(*,*) iter
+	 period = trial(iter)
+	 iter = iter+1
       if (period.ne.0.0d0) go to 20
       write (6,1000)
  1000 format (' calculation completed')
       stop
    20 write (11,1010) period
+      write (6, 1010) period
  1010 format (' guessed period=',1pe14.6,4h sec)
 
 	eig=(2.d0*pi/period)**2

@@ -38,6 +38,7 @@ FFLAGS = -O0 -ffree-form -fno-align-commons
 # ***   Especificar as directorias com as subrotinas  ***
 # *******************************************************
 FNOSC = /home/joao/Documents/Codes/FNOSC/src
+LIB = /home/joao/Documents/Codes/FNOSC/lib
 
 # plot library:
 #JFp = /home/joao/Utils/gnuFor2
@@ -60,6 +61,9 @@ $(FNOSC)/rkfcow.o \
 $(FNOSC)/rkfrad.o \
 $(FNOSC)/rkfs.o \
 $(FNOSC)/splntl.o
+
+LIBS = \
+$(LIB)/lib_array.o
 
 
 #FPLOT = \
@@ -86,8 +90,8 @@ $(FNOSC)/splntl.o
 # ***             Compilar os programas                  *** 
 # **********************************************************
 
-puls: $(FILES)
-	$(FC) $(FILES) -o ../puls
+puls: $(LIBS) $(FILES) 
+	$(FC) $(FILES) $(LIBS) -o ../puls
 
 clean:
-	rm -f $(FILES) *~ ../puls
+	rm -f $(FILES) $(LIBS) *~ ../puls

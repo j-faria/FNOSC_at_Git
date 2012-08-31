@@ -1,55 +1,62 @@
 ! ***************************************************
 ! ***************************************************
-      subroutine goout0(b2)
-! this controls the integration for purely
-! radial pulsations.
-      implicit double precision (a-h,o-z)
-      common g(200),rho(200),x(200),yeig(2,200)
-      common/misc/l,lhat,lindex,nsurf,period,grav, &
+	subroutine goout0(b2)
+! this controls the integration for purely radial
+! pulsations.
+
+	  implicit double precision (a-h,o-z)
+	  common g(200),rho(200),x(200),yeig(2,200)
+	  common/misc/l,lhat,lindex,nsurf,period,grav, &
           pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
           modep
-      common/rs/r(200)
-      double precision l,lhat,lindex
-      common/splinq/vq(6)
-      dimension y(2),work(50),iwork(6)
-      external rkfrad
+	  common/rs/r(200)
+	  double precision l,lhat,lindex
+	  common/splinq/vq(6)
+	  dimension y(2),work(50),iwork(6)
+	  external rkfrad
 !
-      yeig(1,1)=1.0d0
-      rt=x(1)
-      call splntl(rt,vq)
-      yeig(2,1)=-3.0d0*vq(3)*yeig(1,1)
-      y(1)=yeig(1,1)
-      y(2)=yeig(2,1)
-      iflag=1
-      neqn=2
-      nsurf1=nsurf-1
-   50 do 20 j=1,nsurf1
+	yeig(1,1)=1.0d0
+	rt=x(1)
+	call splntl(rt,vq)
+	yeig(2,1)=-3.0d0*vq(3)*yeig(1,1)
+	y(1)=yeig(1,1)
+	y(2)=yeig(2,1)
+	iflag=1
+	neqn=2
+	nsurf1=nsurf-1
+	do j=1,nsurf1
          k=j+1
          xstart=x(j)
          xfin=x(k)
          relerr=1.d-8
          abserr=dabs(y(1))
-      do 30 i=2,neqn
-         temp=dabs(y(i))
-         abserr=dmin1(abserr,temp)
-   30 continue
-         abserr=1.d-8*abserr
-         abserr=dmax1(abserr,1.d-20)
-         call rkf(rkfrad,neqn,y,xstart,xfin,relerr,abserr, &
-              iflag,work,iwork)
-         if (iflag.eq.3.or.iflag.eq.4.or.iflag.eq.5) &
+		do i=2,neqn
+			temp=dabs(y(i))
+			abserr=dmin1(abserr,temp)
+		enddo
+
+		abserr=1.d-8*abserr
+		abserr=dmax1(abserr,1.d-20)
+		call rkf(rkfrad,neqn,y,xstart,xfin,relerr,abserr, &
+				iflag,work,iwork)
+		if (iflag.eq.3.or.iflag.eq.4.or.iflag.eq.5) &
                     write (11,1000) iflag,xfin
-         iflag=1
-         do 10 i=1,2
-   10         yeig(i,k)=y(i)
-   20 continue
-      rt=x(nsurf)
-      call splntl(rt,vq)
-! the following is the outer boundary condition. we
-! iterate until b2 is close enough to zero that
-! corrections to the eigenvalue are within a small
-! tolerance.
-      b2=yeig(1,nsurf)*(4.0d0+eigt*r(nsurf)/g(nsurf))+yeig(2,nsurf)
+		iflag=1
+		do i=1,2
+			yeig(i,k)=y(i)
+	   	enddo
+	enddo
+
+	rt=x(nsurf)
+	call splntl(rt,vq)
+	! the following is the outer boundary condition. we
+	! iterate until b2 is close enough to zero that
+	! corrections to the eigenvalue are within a small
+	! tolerance.
+	b2=yeig(1,nsurf)*(4.0d0+eigt*r(nsurf)/g(nsurf))+yeig(2,nsurf)
+ 
  1000 format (17h watch out,iflag=,i4,6h xfin=,1pe10.2)
-      return
-      end
+
+	return
+	
+	end subroutine goout0

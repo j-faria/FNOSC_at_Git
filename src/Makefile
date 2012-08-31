@@ -90,4 +90,4 @@ puls: $(FILES)
 	$(FC) $(FILES) -o ../puls
 
 clean:
-	rm -f $(FILES) *~ puls
+	rm -f $(FILES) *~ ../puls

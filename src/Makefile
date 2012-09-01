@@ -60,7 +60,8 @@ $(FNOSC)/rkf.o \
 $(FNOSC)/rkfcow.o \
 $(FNOSC)/rkfrad.o \
 $(FNOSC)/rkfs.o \
-$(FNOSC)/splntl.o
+$(FNOSC)/splntl.o \
+$(FNOSC)/read_sun.o
 
 LIBS = \
 $(LIB)/lib_array.o

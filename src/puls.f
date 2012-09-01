@@ -29,39 +29,34 @@
           pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  logical radial
+	  real, dimension(16)     :: p   ! periods from obs file
 	  common/rad/radial
 	  common/rs/r(200)
 	  common/flags/iprnt
-	  integer :: iter = 1
-	  dimension trial(5)
-	  trial(1) = 30.
-	  trial(2) = 40.
-	  trial(3) = 50.
-	  trial(4) = 60.
-	  trial(5) = 0.
+	  integer                 :: iter = 1
 	
-	
-	
-	! tests
-	!ini = 1.
-	!fin = 5.
-	!call linspace_dp(ini,fin,xteste)
-	!write(*,*) xteste
 	
 	!
 	! read in model quantities.
-	!
 	call read
+	
+	!
+	! read solar frequencies to set search
+	p = 0.0	! initialize 
+	call read_sun( p )
+!	do i=1,size(p)
+!		write(6,*) p(i)
+!	enddo
 
-   10 write (6,2000)
- 2000 format (' enter guessed period (in seconds)')
-	 write (6,2001)
- 2001 format (' (enter a period of 0 to stop)')
+
+   10 continue 
+!	 write (6,2000)
+! 2000 format (' enter guessed period (in seconds)')
+!	 write (6,2001)
+! 2001 format (' (enter a period of 0 to stop)')
       
 !      read (5,*) period
-      write(*,*) trial
-      write(*,*) iter
-	 period = trial(iter)
+	 period = p(iter)
 	 iter = iter+1
       if (period.ne.0.0d0) go to 20
       write (6,1000)
@@ -134,9 +129,11 @@
  
 	! count nodes in y1.
 	call modeid
+	! in radial modes we introduce an additional (+1) 
+	! cross in the phase diagram 
 	if (radial) then
-		write (6,1050) nodes1
-		write (11,1050) nodes1
+		write (6,1050) nodes1+1
+		write (11,1050) nodes1+1
  1050 format (i3,' radial nodes in y1')
 	else
 		write (6,1110) nodes1,nodes2,modep

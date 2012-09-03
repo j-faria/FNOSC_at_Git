@@ -49,6 +49,7 @@ LIB = /home/joao/Documents/Codes/FNOSC/lib
 
 FILES = \
 $(FNOSC)/consts.o \
+$(FNOSC)/commonvar.o \
 $(FNOSC)/consl.o \
 $(FNOSC)/fehl.o \
 $(FNOSC)/goout0.o \

@@ -7,9 +7,11 @@
 	  use commonvar
 	  
 	  implicit double precision (a-h,o-z)
+!	  common g(200),rho(200),x(200),yeig(2,200)
 	  common/misc/l,lhat,lindex,nsurf,period, &
           eps,verg,eig,eigt,nodes1,nodes2, &
           modep
+!	  common/rs/r(200)
 	  double precision l,lhat,lindex
 	  common/splinq/vq(6)
 	  dimension y(2),work(50),iwork(6)

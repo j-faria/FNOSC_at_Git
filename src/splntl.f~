@@ -5,7 +5,7 @@
 ! intermediate steps in the integration using cubic
 ! splines.
 
-	  use commonvar, only: y6=>r
+	  use commonvar, only: r=>y6
 	  
 	  implicit double precision (a-h,o-z)
 	  common/savngl/k,kq

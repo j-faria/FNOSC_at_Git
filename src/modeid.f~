@@ -6,10 +6,9 @@
 ! see unno et al. (1989).
 
 	  use consts
-	  use commonvar
 	  
 	  implicit double precision (a-h,o-z)
-!	  common g(200),rho(200),x(200),yeig(2,200)
+	  common g(200),rho(200),x(200),yeig(2,200)
 	  double precision l,lhat,lindex
 	  common/misc/l,lhat,lindex,nsurf,period, &
           eps,verg,eig,eigt,nodes1,nodes2, &

@@ -39,7 +39,7 @@ c
 c First executable statement. Call the input routine
 c after setting the number of mesh points (N).
 c
-      N=201
+      N=2001
 c
       CALL INPUT (NTRY, N, NFOUT, NFIN, NFILE, NPULS,
      *    OUTFILE)
@@ -95,10 +95,10 @@ c the maximum allowed number of iterations.
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       CHARACTER*20 OUTFILE, OUTPULS, YORN
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       PARAMETER (AMSUN=1.989D33, ALSUN=3.847D33)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
       LOGICAL IPULS
@@ -226,17 +226,17 @@ c you wanted pulsation output, it is written to
 c "outpuls".
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
-      DIMENSION TOTLUM(201), RPULS(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
+      DIMENSION TOTLUM(2001), RPULS(2001)
       LOGICAL IPULS
       CHARACTER*20 OUTPULS
       COMMON /PULS/ OUTPULS, IPULS
-      COMMON /PULSOUT/ XPULS(201), GPULS(201), SL2(201),
-     *  BV2(201), UPULS(201), VPULS(201), CHIT(201),
-     *  CHIRHO(201), G3(201)
+      COMMON /PULSOUT/ XPULS(2001), GPULS(2001), SL2(2001),
+     *  BV2(2001), UPULS(2001), VPULS(2001), CHIT(2001),
+     *  CHIRHO(2001), G3(2001)
       PARAMETER (PSIG4=7.1246D-4, GRAV=6.6726D-8,
      *   P4=12.56637062D0, ALSUN=3.847D33)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
@@ -363,10 +363,10 @@ c problem has converged (NGO is 2). Only (3) is done in
 c that case (to get a final model).
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       COMMON /DENSITY/VGUESS
       DIMENSION TY(2), TYOUT(4,2), DYOUT(2), YGO(4),
      *   WORK(27), IWORK(5)
@@ -376,9 +376,9 @@ c ***********************************************
      *   PG23=1.397504D-7, AC8=1.81456D-3,
      *   P4=12.5663706D0)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
-      COMMON /PULSOUT/ XPULS(201), GPULS(201), SL2(201),
-     *  BV2(201), UPULS(201), VPULS(201), CHIT(201),
-     *  CHIRHO(201), G3(201)
+      COMMON /PULSOUT/ XPULS(2001), GPULS(2001), SL2(2001),
+     *  BV2(2001), UPULS(2001), VPULS(2001), CHIT(2001),
+     *  CHIRHO(2001), G3(2001)
       EXTERNAL DERIVS
 c YOUT(N,I) is (at the Nth point): I=1, ln P; i=2, ln T;
 c I=3, ln r; I=4, ln L.
@@ -499,10 +499,10 @@ c the guessed values of R and LUM. All three are  done
 c (when NGO is 1) except when the problem has converged.
 c Only (3) is done in that case (to get the final model).
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       COMMON /DENSITY/VGUESS
       DIMENSION TY(2), TYIN(4,2), DYIN(2), YGO(4),
      *   WORK(27), IWORK(5)
@@ -512,9 +512,9 @@ c Only (3) is done in that case (to get the final model).
      *   PG23=1.397504D-7, AC8=1.81456D-3,
      *   P4=12.5663706D0)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
-      COMMON /PULSOUT/ XPULS(201), GPULS(201), SL2(201),
-     *  BV2(201), UPULS(201), VPULS(201), CHIT(201),
-     *  CHIRHO(201), G3(201)
+      COMMON /PULSOUT/ XPULS(2001), GPULS(2001), SL2(2001),
+     *  BV2(2001), UPULS(2001), VPULS(2001), CHIT(2001),
+     *  CHIRHO(2001), G3(2001)
       EXTERNAL DERIVS
 c
 c YIN is the analogue of YOUT in GOOUT and it marches
@@ -640,10 +640,10 @@ c parameters change across the fitting point as the
 c central and surface values are independently varied.
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       LOGICAL IDIDIT
       DIMENSION YTEMP(4),IPVT(4)
       PARAMETER (AMSUN=1.989D33, ALSUN=3.86D33, VERG=5.D-3)
@@ -726,18 +726,18 @@ c find the variables at the first point away  from
 c the center. (See Sec. 7.3.1.)
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       DIMENSION YGO(4)
       COMMON /DENSITY/VGUESS
       PARAMETER (GRAV=6.67259D-8, P43=4.1887902,
      *   PG23=1.397504D-7, AC8=1.81456D-3)
 c GRAV=G, P43=4PI/3, PG23=2 PI*G/3. AC8=8ac
-      COMMON /PULSOUT/ XPULS(201), GPULS(201), SL2(201),
-     *  BV2(201), UPULS(201), VPULS(201), CHIT(201),
-     *  CHIRHO(201), G3(201)
+      COMMON /PULSOUT/ XPULS(2001), GPULS(2001), SL2(2001),
+     *  BV2(2001), UPULS(2001), VPULS(2001), CHIT(2001),
+     *  CHIRHO(2001), G3(2001)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
 c
       DO 1 I=1,4
@@ -781,10 +781,10 @@ c and that photospheric boundary conditions are OK.
 c ***********************************************
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DIMENSION YGO(4)
-      COMMON /BUCKET/ XI(201), DXI(201), YOUT(4,201),
-     *   YIN(4,201), DYFIT(4), PARTIAL(4,4), AMR(201),
-     *   RHO(201), OP(201), ALCONV(201), EPSGEN(201),
-     *   DEL(201), DELAD(201), DELRAD(201)
+      COMMON /BUCKET/ XI(2001), DXI(2001), YOUT(4,2001),
+     *   YIN(4,2001), DYFIT(4), PARTIAL(4,4), AMR(2001),
+     *   RHO(2001), OP(2001), ALCONV(2001), EPSGEN(2001),
+     *   DEL(2001), DELAD(2001), DELRAD(2001)
       COMMON  AMASS, AMTOT, AL, QFIT, X, Y, Z
       COMMON /DENSITY/VGUESS
       PARAMETER (GRAV=6.67259D-8, PSIG4=7.1246D-4,

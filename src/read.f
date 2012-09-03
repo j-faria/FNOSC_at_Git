@@ -3,11 +3,13 @@
 	subroutine read
 !  this routine reads in model quantities.
 
+	  use consts
+	  
 	  implicit double precision (a-h,o-z)
 	  character*1 iyorn
 	  common g(200),rho(200),x(200),yeig(2,200)
-      common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+      common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
       common/rs/r(200)
       common/flags/iprnt
@@ -37,10 +39,7 @@
 ! newton's method.
       verg=1.00d-05
       eps=1.00d-03
-      pi=3.1415926535898d0
-      p43=4.d0*pi/3.d0
-      pi4=4.d0*pi
-      grav=6.6723d-08
+      !grav=6.6723d-08
       read (10,*) amass
       read (10,*) xx,yy
       write (11,1000) amass

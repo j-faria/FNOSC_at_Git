@@ -48,6 +48,7 @@ LIB = /home/joao/Documents/Codes/FNOSC/lib
 #----------------------------------------------------------
 
 FILES = \
+$(FNOSC)/consts.o \
 $(FNOSC)/consl.o \
 $(FNOSC)/fehl.o \
 $(FNOSC)/goout0.o \
@@ -61,7 +62,8 @@ $(FNOSC)/rkfcow.o \
 $(FNOSC)/rkfrad.o \
 $(FNOSC)/rkfs.o \
 $(FNOSC)/splntl.o \
-$(FNOSC)/read_sun.o
+$(FNOSC)/read_sun.o \
+$(FNOSC)/output.o
 
 LIBS = \
 $(LIB)/lib_array.o

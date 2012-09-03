@@ -4,11 +4,14 @@
 ! this subroutine identifies the mode of the pulsation
 ! using a phase diagram method. 
 ! see unno et al. (1989).
+
+	  use consts
+	  
 	  implicit double precision (a-h,o-z)
 	  common g(200),rho(200),x(200),yeig(2,200)
 	  double precision l,lhat,lindex
-	  common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+	  common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  integer quad,quad2,quad1
 !

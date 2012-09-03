@@ -3,11 +3,12 @@
 	subroutine goout0(b2)
 ! this controls the integration for purely radial
 ! pulsations.
-
+	  use consts
+	  
 	  implicit double precision (a-h,o-z)
 	  common g(200),rho(200),x(200),yeig(2,200)
-	  common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+	  common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  common/rs/r(200)
 	  double precision l,lhat,lindex
@@ -49,11 +50,11 @@
 
 	rt=x(nsurf)
 	call splntl(rt,vq)
-	! the following is the outer boundary condition. we
-	! iterate until b2 is close enough to zero that
+	! the following is the outer boundary condition. 
+	! we iterate until b2 is close enough to zero that
 	! corrections to the eigenvalue are within a small
 	! tolerance.
-	b2=yeig(1,nsurf)*(4.0d0+eigt*r(nsurf)/g(nsurf))+yeig(2,nsurf)
+	b2=yeig(1,nsurf)*(4.0d0+eigt*r(nsurf)/g(nsurf))+yeig(2,nsurf)	! eq 8.14
  
  1000 format (17h watch out,iflag=,i4,6h xfin=,1pe10.2)
 

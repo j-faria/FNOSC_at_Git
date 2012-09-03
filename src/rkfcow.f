@@ -5,9 +5,12 @@
 ! this routine supplies the derivatives for use in rkf
 ! for the nonradial case.
 !
+
+	  use consts
+	  
 	  implicit double precision (a-h,o-z)
-	  common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+	  common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  double precision l,lhat,lindex
 	  dimension y(2),yp(2)

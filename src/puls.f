@@ -21,12 +21,13 @@
 ! enter a zero if you want the radial case.
 ! ******************************************************
 	  use lib_array
+	  use consts
 	  
 	  implicit double precision (a-h,o-z)
 	  common g(200),rho(200),x(200),yeig(2,200)
 	  double precision l,lhat,lindex
-	  common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+	  common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  logical radial
 	  real, dimension(16)     :: p   ! periods from obs file
@@ -34,6 +35,7 @@
 	  common/rs/r(200)
 	  common/flags/iprnt
 	  integer                 :: iter = 1
+	  character(len=20)       :: outputfile
 	
 	
 	!
@@ -58,20 +60,23 @@
 !      read (5,*) period
 	 period = p(iter)
 	 iter = iter+1
-      if (period.ne.0.0d0) go to 20
-      write (6,1000)
- 1000 format (' calculation completed')
-      stop
+	 if( period.eq.0.0d0 ) then
+      	write (6,1000)
+ 1000	format (' calculation completed')
+ 		stop
+	 else
+	 	continue
+	 end if
+
    20 write (11,1010) period
       write (6, 1010) period
  1010 format (' guessed period=',1pe14.6,4h sec)
 
-	eig=(2.d0*pi/period)**2
 	! eig is the first guess at the eigenvalue = sigma**2.
 	eig = (2.0d0*pi/period)**2
 	nconv = 0
 	nserch=20
-	!
+
 	! try to converge to a solution using newton's method.
 	!
 	do ntry=1,nserch
@@ -141,6 +146,13 @@
  1110 format(i3,' nodes in y1   ',i3,' nodes in y2 '/'     phase diagram mode ',i3)
 	endif
 
+	!
+	! output mode frequencies to file
+	outputfile = 'freqs'
+	open (unit=13, file=outputfile, status='unknown', action='write')
+	call output(outputfile, int(l), nodes1, modep, period)
+	
+	
 	if (iprnt.ne.1) go to 140
 	
 	! if user asked to print eigenfunctions

@@ -3,10 +3,13 @@
 	subroutine gooutl(b2)
 ! this controls the integration for the cowling
 ! approximation.
+
+	  use consts
+	  
 	  implicit double precision (a-h,o-z)
 	  common g(200),rho(200),x(200),yeig(2,200)
-	  common/misc/l,lhat,lindex,nsurf,period,grav, &
-          pi,pi4,p43,eps,verg,eig,eigt,nodes1,nodes2, &
+	  common/misc/l,lhat,lindex,nsurf,period, &
+          eps,verg,eig,eigt,nodes1,nodes2, &
           modep
 	  common/rs/r(200)
 	  double precision l,lhat,lindex
@@ -15,7 +18,7 @@
 	  external rkfcow
 !
 	yeig(1,1)=1.0d0
-	yeig(2,1)=eigt/(l*grav*p43*rho(1))
+	yeig(2,1)=eigt/(l*grav*pi43*rho(1))
 	y(1)=yeig(1,1)
 	y(2)=yeig(2,1)
 	iflag=1

@@ -63,6 +63,8 @@
 
 	! read in model quantities from zams.
 	read (10,*) nsurf
+!	allocate(x(nsurf))
+	allocate(r(nsurf), g(nsurf), rho(nsurf) ) 
 	read (10,*) (x(i),r(i),g(i),rho(i),i=1,nsurf)
 	rsurf=r(nsurf)
 	read (10,*) m

@@ -19,10 +19,16 @@ module commonvar
      logical   :: radial
      
      ! arrays
-     real(dp), dimension(200)              :: r
-     real(dp), dimension(200)              :: g
-     real(dp), dimension(200)              :: rho
+     !! the following have dimensions depending on the
+     !! number of points in the equilibrium model
+!	real(dp), dimension(200)              :: r
+!	real(dp), dimension(200)              :: g
+!	real(dp), dimension(200)              :: rho
+     real(dp), dimension(:), allocatable   :: r
+     real(dp), dimension(:), allocatable   :: g
+     real(dp), dimension(:), allocatable   :: rho
      real(dp), dimension(200)              :: x
+!     real(dp), dimension(:), allocatable   :: x
      real(dp), dimension(2,200)            :: yeig
 
 

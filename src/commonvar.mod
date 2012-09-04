@@ -1,5 +1,5 @@
-GFORTRAN module version '6' created from /home/joao/Documents/Codes/FNOSC/src/commonvar.f on Tue Sep  4 00:03:19 2012
-MD5:90d951e63099665d94bfecd4424cd8dd -- If you edit this, you'll get what you deserve.
+GFORTRAN module version '6' created from /home/joao/Documents/Codes/FNOSC/src/commonvar.f on Tue Sep  4 14:28:36 2012
+MD5:0e077dddd5110fb41002aa27d1d281f2 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -21,9 +21,8 @@ UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 0
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () (CONSTANT (
 INTEGER 4 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
 4 'g' 'commonvar' 'g' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
-IMPLICIT-SAVE 0 0 DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
-CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
-INTEGER ()) 0 '200')) 0 () () () 0 0)
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1
+0 DEFERRED () ()) 0 () () () 0 0)
 5 'iprnt' 'commonvar' 'iprnt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
 () 0 0)
@@ -31,16 +30,14 @@ UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () (CONSTANT (
 INTEGER 4 0 0 INTEGER ()) 0 '16') () 0 () () () 0 0)
 7 'r' 'commonvar' 'r' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
-IMPLICIT-SAVE 0 0 DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
-CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
-INTEGER ()) 0 '200')) 0 () () () 0 0)
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1
+0 DEFERRED () ()) 0 () () () 0 0)
 8 'radial' 'commonvar' 'radial' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0 LOGICAL ()) 0 0 () () 0 () ()
 () 0 0)
 9 'rho' 'commonvar' 'rho' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
-UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0
-EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER
-4 0 0 INTEGER ()) 0 '200')) 0 () () () 0 0)
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
 10 'selected_real_kind' '(intrinsic)' 'selected_real_kind' 1 ((
 PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (
 UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 10 () () () 0 0)

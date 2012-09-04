@@ -81,6 +81,8 @@
 	nconv = 0
 	nserch=20
 
+
+write(6,*) r(1), r(nsurf)
 	! try to converge to a solution using newton's method.
 	!
 	do ntry=1,nserch
@@ -177,4 +179,6 @@
       
       go to 10
       
+      deallocate(r, g, rho)
+     
       end

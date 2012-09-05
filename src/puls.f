@@ -35,9 +35,14 @@
 	  character               :: ioeigfun
 	
 	
+	
 	!
 	! read in model quantities.
 	call read
+	
+	
+	nfun = 2
+	allocate( yeig(nfun,nsurf) )
 	
 	! do you want the eigenfunctions saved to file?
 	write (6,2000)
@@ -79,10 +84,11 @@
 	! eig is the first guess at the eigenvalue = sigma**2.
 	eig = (2.0d0*pi/period)**2
 	nconv = 0
+	! maximum iterations allowed
 	nserch=20
 
 
-write(6,*) r(1), r(nsurf)
+
 	! try to converge to a solution using newton's method.
 	!
 	do ntry=1,nserch
@@ -179,6 +185,7 @@ write(6,*) r(1), r(nsurf)
       
       go to 10
       
+!      deallocate(yeig)
       deallocate(r, g, rho)
      
       end

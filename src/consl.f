@@ -4,17 +4,21 @@
 ! this subroutine sets up coefficient arrays for spline
 ! interpolation.
 !
+
       implicit double precision (a-h,o-z)
-      dimension c(4,m)
-      dimension x(m),y(m)
-      dimension a(200,3),d(200),b(200),z(200),p(200)
+	integer, parameter :: dp = selected_real_kind(p=15)
+	real(dp), intent(inout)   :: c(4,*)
+     real(dp), intent(in)      :: x(*), y(*)
+      dimension a(m,3),d(m),b(m),z(m),p(m)
 !
+
 	mm=m-1
 	do k=1,mm
 		d(k)=x(k+1)-x(k)
       	p(k)=d(k)/6.d0
       	z(k)=(y(k+1)-y(k))/d(k)
 	enddo
+	
 	
 	do k=2,mm
       	b(k)=z(k)-z(k-1)
@@ -34,13 +38,16 @@
 		b(k)=b(k)/a(k,2)
 	enddo
 
+	
+	
 	q=d(m-2)/d(m-1)
 	a(m,1)=1.d0+q+a(m-2,3)
 	a(m,2)=-q-a(m,1)*a(m-1,3)
 	b(m)=b(m-2)-a(m,1)*b(m-1)
 	z(m)=b(m)/a(m,2)
 	mn=m-2
-
+	
+	
 	do i=1,mn
 		k=m-i
 		z(k)=b(k)-a(k,3)*z(k+1)

@@ -10,16 +10,18 @@
        common/misc/l,lhat,lindex,nsurf,period, &
           eps,verg,eig,eigt,nodes1,nodes2, &
           modep
-	  common /savel/m,xi(200),c1(4,200),y1(200),c2(4,200), &
-       y2(200),c3(4,200),y3(200),c4(4,200),y4(200), &
-       c5(4,200),y5(200),c6(4,200)
+	  common /savel/m
 	  common /surf/rsurf
+	  
+	  dimension xc(1800), y(1800), c(4,1800)
+
+	  
       
 	double precision l,lhat,lindex
 	character(len=20)    :: outfile, infile
 !	
 
-
+	
 !
       radial=.false.
       !
@@ -63,8 +65,13 @@
 
 	! read in model quantities from zams.
 	read (10,*) nsurf
-!	allocate(x(nsurf))
+!	write(6,*) nsurf
+	
+	! allocate arrays
 	allocate(r(nsurf), g(nsurf), rho(nsurf) ) 
+	allocate( xi(nsurf), y1(nsurf), y2(nsurf), y3(nsurf), y4(nsurf), y5(nsurf) )
+
+	
 	read (10,*) (x(i),r(i),g(i),rho(i),i=1,nsurf)
 	rsurf=r(nsurf)
 	read (10,*) m
@@ -72,6 +79,8 @@
 		read (10,*) xi(i),y1(i),y2(i),y3(i)
 		read (10,*) y4(i),y5(i)
 	enddo  
+	
+	
 
 	if (radial) then
 		! for the radial case y4 contains v (of the u-v plane)
@@ -83,12 +92,31 @@
 	endif
 	
 ! set up spline coefficients for use with integrator.
-      call consl(xi,y1,m,c1)
-      call consl(xi,y2,m,c2)
-      call consl(xi,y3,m,c3)
-      call consl(xi,y4,m,c4)
-      call consl(xi,y5,m,c5)
-      call consl(xi,r ,m,c6)
+	nc = 4
+	allocate( c1(nc,nsurf), c2(nc,nsurf), c3(nc,nsurf), c4(nc,nsurf), c5(nc,nsurf), c6(nc,nsurf) )
+
+	
+	xc  = xi; y = y1; c = c1
+	call consl(xc,y,m,c)
+	c1 = c
+	xc = xi; y = y2; c = c2
+	call consl(xc,y,m,c)
+	c2 = c
+	xc = xi; y = y3; c = c3
+	call consl(xc,y,m,c)
+	c3 = c	
+	xc = xi; y = y4; c = c4
+	call consl(xc,y,m,c)
+	c4 = c
+	xc = xi; y = y5; c = c5
+	call consl(xc,y,m,c)
+	c5 = c
+	xc = xi; y = r; c = c6
+	call consl(xc,y,m,c)
+	c6 = c
+	
 
       return
       end
+
+

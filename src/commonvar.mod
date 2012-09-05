@@ -1,5 +1,5 @@
-GFORTRAN module version '6' created from /home/joao/Documents/Codes/FNOSC/src/commonvar.f on Tue Sep  4 14:28:36 2012
-MD5:0e077dddd5110fb41002aa27d1d281f2 -- If you edit this, you'll get what you deserve.
+GFORTRAN module version '6' created from /home/joao/Documents/Codes/FNOSC/src/commonvar.f on Wed Sep  5 20:55:49 2012
+MD5:2038ddf64b42fa5d839dd69e73137ad9 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -14,46 +14,82 @@ MD5:0e077dddd5110fb41002aa27d1d281f2 -- If you edit this, you'll get what you de
 
 ()
 
-(2 'commonvar' 'commonvar' 'commonvar' 1 ((MODULE UNKNOWN-INTENT
+(2 'c1' 'commonvar' 'c1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+3 'c2' 'commonvar' 'c2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+0 DEFERRED () () () ()) 0 () () () 0 0)
+4 'c3' 'commonvar' 'c3' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+0 DEFERRED () () () ()) 0 () () () 0 0)
+5 'c4' 'commonvar' 'c4' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+0 DEFERRED () () () ()) 0 () () () 0 0)
+6 'c5' 'commonvar' 'c5' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+0 DEFERRED () () () ()) 0 () () () 0 0)
+7 'c6' 'commonvar' 'c6' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+0 DEFERRED () () () ()) 0 () () () 0 0)
+8 'commonvar' 'commonvar' 'commonvar' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 0
 () () () 0 0)
-3 'dp' 'commonvar' 'dp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+9 'dp' 'commonvar' 'dp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () (CONSTANT (
 INTEGER 4 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
-4 'g' 'commonvar' 'g' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+10 'g' 'commonvar' 'g' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1
 0 DEFERRED () ()) 0 () () () 0 0)
-5 'iprnt' 'commonvar' 'iprnt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+11 'iprnt' 'commonvar' 'iprnt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
 () 0 0)
-6 'qp' 'commonvar' 'qp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+12 'qp' 'commonvar' 'qp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () (CONSTANT (
 INTEGER 4 0 0 INTEGER ()) 0 '16') () 0 () () () 0 0)
-7 'r' 'commonvar' 'r' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+13 'r' 'commonvar' 'r' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1
 0 DEFERRED () ()) 0 () () () 0 0)
-8 'radial' 'commonvar' 'radial' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
-UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0 LOGICAL ()) 0 0 () () 0 () ()
-() 0 0)
-9 'rho' 'commonvar' 'rho' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+14 'radial' 'commonvar' 'radial' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0 LOGICAL ()) 0 0 ()
+() 0 () () () 0 0)
+15 'rho' 'commonvar' 'rho' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
-10 'selected_real_kind' '(intrinsic)' 'selected_real_kind' 1 ((
+16 'selected_real_kind' '(intrinsic)' 'selected_real_kind' 1 ((
 PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (
-UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 10 () () () 0 0)
-11 'sp' 'commonvar' 'sp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 16 () () () 0 0)
+17 'sp' 'commonvar' 'sp' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
 UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () (CONSTANT (
 INTEGER 4 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
-12 'x' 'commonvar' 'x' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+18 'x' 'commonvar' 'x' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 IMPLICIT-SAVE 0 0 DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
 CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
-INTEGER ()) 0 '200')) 0 () () () 0 0)
-13 'yeig' 'commonvar' 'yeig' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
-UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 0
-EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER
-4 0 0 INTEGER ()) 0 '2') (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (
-CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '200')) 0 () () () 0 0)
+INTEGER ()) 0 '1800')) 0 () () () 0 0)
+19 'xi' 'commonvar' 'xi' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+20 'y1' 'commonvar' 'y1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+21 'y2' 'commonvar' 'y2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+22 'y3' 'commonvar' 'y3' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+23 'y4' 'commonvar' 'y4' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+24 'y5' 'commonvar' 'y5' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+25 'yeig' 'commonvar' 'yeig' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
 )
 
-('commonvar' 0 2 'dp' 0 3 'g' 0 4 'iprnt' 0 5 'qp' 0 6 'r' 0 7 'radial'
-0 8 'rho' 0 9 'selected_real_kind' 0 10 'sp' 0 11 'x' 0 12 'yeig' 0 13)
+('c1' 0 2 'c2' 0 3 'c3' 0 4 'c4' 0 5 'c5' 0 6 'c6' 0 7 'commonvar' 0 8
+'dp' 0 9 'g' 0 10 'iprnt' 0 11 'qp' 0 12 'r' 0 13 'radial' 0 14 'rho' 0
+15 'selected_real_kind' 0 16 'sp' 0 17 'x' 0 18 'xi' 0 19 'y1' 0 20 'y2'
+0 21 'y3' 0 22 'y4' 0 23 'y5' 0 24 'yeig' 0 25)
